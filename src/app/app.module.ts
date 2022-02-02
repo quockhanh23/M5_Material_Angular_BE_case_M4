@@ -23,6 +23,7 @@ import { MasterComponent } from './master/master.component';
 import { DialogLogoutComponent } from './Notification/dialog-logout/dialog-logout.component';
 import { DialogLogin1Component } from './Notification/dialog-login1/dialog-login1.component';
 import { DialogLoginRulesComponent } from './Notification/dialog-login-rules/dialog-login-rules.component';
+import { DialogRegisterComponent } from './Notification/dialog-register/dialog-register.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DialogLoginRulesComponent } from './Notification/dialog-login-rules/dia
     MasterComponent,
     DialogLogoutComponent,
     DialogLogin1Component,
-    DialogLoginRulesComponent
+    DialogLoginRulesComponent,
+    DialogRegisterComponent
   ],
   imports: [
     BrowserModule,

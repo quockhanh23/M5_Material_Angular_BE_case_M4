@@ -5,7 +5,6 @@ import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {UserToken} from "../models/user-token";
 import {MatDialog} from "@angular/material/dialog";
-import {DialogComponent} from "../Notification/dialog/dialog.component";
 import {DialogLogoutComponent} from "../Notification/dialog-logout/dialog-logout.component";
 
 const API_URL = environment.apiUrl;

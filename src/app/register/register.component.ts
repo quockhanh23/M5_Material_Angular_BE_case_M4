@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {DialogComponent} from "../Notification/dialog/dialog.component";
 import {User} from "../models/user";
+import {DialogFailComponent} from "../Notification/dialog-fail/dialog-fail.component";
+import {DialogRegisterComponent} from "../Notification/dialog-register/dialog-register.component";
 
 @Component({
   selector: 'app-register',
@@ -25,7 +27,11 @@ export class RegisterComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent);
+    this.dialog.open(DialogRegisterComponent);
+  }
+
+  openDialog1() {
+    this.dialog.open(DialogFailComponent);
   }
 
   ngOnInit(): void {
@@ -42,11 +48,10 @@ export class RegisterComponent implements OnInit {
     this.userService.register(user).subscribe(rs => {
       console.log(rs)
       this.openDialog()
-      this.router.navigateByUrl("/login")
+      this.router.navigateByUrl("/login").then()
     }, error => {
       console.log(error)
-      alert("Oops! Something has been wrong. Please try again! ")
-
+      this.openDialog1()
     })
   }
 }
