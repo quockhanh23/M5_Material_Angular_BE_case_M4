@@ -3,10 +3,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../services/authentication.service";
-import {DialogComponent} from "../Notification/dialog/dialog.component";
 import {first} from "rxjs";
 import {DialogFailComponent} from "../Notification/dialog-fail/dialog-fail.component";
-
 import {DialogLogin1Component} from "../Notification/dialog-login1/dialog-login1.component";
 import {DialogLoginRulesComponent} from "../Notification/dialog-login-rules/dialog-login-rules.component";
 
@@ -36,10 +34,6 @@ export class LoginComponent implements OnInit {
     console.log(this.authenticationService.currentUserValue);
   }
 
-  openDialog() {
-    this.dialog.open(DialogComponent);
-  }
-
   openDialog2() {
     this.dialog.open(DialogFailComponent);
   }
@@ -47,6 +41,7 @@ export class LoginComponent implements OnInit {
   openDialog3() {
     this.dialog.open(DialogLoginRulesComponent);
   }
+
   openDialog4() {
     this.dialog.open(DialogLogin1Component);
   }
@@ -70,10 +65,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
           localStorage.setItem('USERNAME', data.username);
-          // @ts-ignore
 
           this.openDialog3()
           this.openDialog4()
+
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl])
           } else {

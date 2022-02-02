@@ -17,6 +17,7 @@ export class HomeListComponent implements OnInit {
               private categoryService: CategoryService,
               public dialog: MatDialog) {
   }
+
   openDialog() {
     this.dialog.open(DialogComponent);
   }
