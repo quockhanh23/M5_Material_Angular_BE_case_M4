@@ -30,6 +30,7 @@ import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 
+
 const DialogComponents = [
   DialogComponent,
   DialogFailComponent,
@@ -54,7 +55,8 @@ const DialogComponents = [
     FooterComponent,
     HeaderComponent,
     MasterComponent,
-    DialogComponents
+    DialogComponents,
+
   ],
   imports: [
     BrowserModule,

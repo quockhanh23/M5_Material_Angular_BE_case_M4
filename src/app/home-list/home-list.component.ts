@@ -4,6 +4,7 @@ import {Home} from "../models/home";
 import {CategoryService} from "../services/category.service";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../Notification/dialog/dialog.component";
+import {DialogFailComponent} from "../Notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-home-list',
@@ -18,7 +19,10 @@ export class HomeListComponent implements OnInit {
               public dialog: MatDialog) {
   }
 
-  openDialog() {
+  openDialogFail() {
+    this.dialog.open(DialogFailComponent);
+  }
+  openDialogSuccess() {
     this.dialog.open(DialogComponent);
   }
 
@@ -36,6 +40,18 @@ export class HomeListComponent implements OnInit {
       console.log(result)
     }, error => {
       console.log(error)
+    })
+  }
+
+  deleteHome(id: any) {
+    this.homeService.delete(id).subscribe(() => {
+      console.log(id)
+      this.openDialogSuccess()
+      this.ngOnInit()
+    }, error => {
+      console.log(id)
+      console.log(error)
+      this.openDialogFail()
     })
   }
 }

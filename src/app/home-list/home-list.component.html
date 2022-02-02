@@ -3,13 +3,14 @@
   <div class="flat-item">
     <div class="flat-item-image f1">
                   <span
-                    style="  font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
+                    style="font-family: 'Comforter', cursive !important;
+                    font-family: 'Open Sans', sans-serif !important;"
                     class="for-sale f1">{{ho.statusHome?.name}}</span>
-      <a style="" href="properties-details.html"><img src="assets/images/flat/1.jpg" alt=""></a>
+      <img src="assets/images/flat/1.jpg" alt="">
       <div class="flat-link f1">
-        <a
-          style="  font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
-          href="properties-details.html">Xem Chi Tiết</a>
+        <a style="font-family: 'Comforter', cursive !important;
+                  font-family: 'Open Sans', sans-serif !important;"
+           [routerLink]="['/detail', ho?.id]">Xem Chi Tiết</a>
       </div>
       <ul class="flat-desc">
         <li>
@@ -37,6 +38,8 @@
         style=" font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
         src="assets/images/icons/location.png" alt="">{{ho.address}}</p>
     </div>
+
+    <button (click)="deleteHome(ho?.id)" class="btn-primary" mat-button>Xóa</button>
   </div>
 </div>
 <!-- flat-item -->
