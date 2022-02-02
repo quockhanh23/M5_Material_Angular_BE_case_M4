@@ -4,14 +4,14 @@
       <div class="col-md-3 col-xs-12"></div>
       <div class="col-md-6 col-xs-12">
         <div class="registered-customers mb-50">
-          <h5 class="mb-50">LOGIN</h5>
+          <h3 class="mb-50 fontLogin">Đăng nhập</h3>
           <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="login-account p-30 box-shadow">
-              <p>If you have an account with us, Please log in.</p>
-              <input type="text" name="name" formControlName="username" placeholder="Username">
-              <input type="password" name="password" formControlName="password" placeholder="Password">
-              <p><small><a href="#">Forgot our password?</a></small></p>
-              <button class="submit-btn-1" type="submit">login</button>
+              <p class="fontLogin"><strong>Bạn đã có tài khoản, hãy đăng nhập ngay.</strong></p>
+              <input class="fontLogin" type="text" name="name" formControlName="username" placeholder="Tài khoản">
+              <input class="fontLogin" type="password" name="password" formControlName="password" placeholder="Mật khẩu">
+              <p class="fontLogin"><small><a href="#">Quên mật khẩu?</a></small></p>
+              <button class="submit-btn-1 fontLogin" type="submit">Đăng nhập</button>
             </div>
           </form>
         </div>
