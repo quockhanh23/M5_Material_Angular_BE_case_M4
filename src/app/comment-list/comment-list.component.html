@@ -1,0 +1,23 @@
+<div>
+  <h2 style="color: #0a70b9">List comment</h2>
+  <table style="color: purple" border="1px" width="100%">
+    <tr>
+      <th>Number</th>
+      <th>Content</th>
+      <th>Time</th>
+      <th>Home</th>
+      <th>user</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let pe of comment  index as i">
+      <td>{{i + 1}}</td>
+      <td>{{pe.content}}</td>
+      <td>{{pe.time}}</td>
+      <td>{{pe.home?.id}}</td>
+      <td>{{pe.user?.id}}</td>
+
+    </tr>
+  </table>
+</div>
+<h2 style="color: purple" id="alo"></h2>

@@ -1,0 +1,43 @@
+
+<!-- flat-item -->
+<div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let ho of home">
+  <div class="flat-item" >
+    <div class="flat-item-image f1" >
+                  <span
+                    style="  font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
+                    class="for-sale f1">{{ho.statusHome?.name}}</span>
+      <a style="" href="properties-details.html"><img src="assets/images/flat/1.jpg" alt=""></a>
+      <div class="flat-link f1">
+        <a
+          style="  font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
+          href="properties-details.html">Xem Chi Tiết</a>
+      </div>
+      <ul  class="flat-desc">
+        <li>
+          <img src="assets/images/icons/4.png" alt="">
+          <span class="f1">{{ho.area}} m<sup>2</sup></span>
+        </li>
+        <li>
+          <img src="assets/images/icons/5.png" alt="">
+          <span class="f1">{{ho.bedroom}}</span>
+        </li>
+        <li>
+          <img src="assets/images/icons/6.png" alt="">
+          <span class="f1">{{ho.showerRoom}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flat-item-info">
+      <div class="flat-title-price">
+        <h5 class="f1"><a
+          style="  font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
+          href="properties-details.html">{{ho.name}}</a></h5>
+        <span class="price f1">{{ho.price}} VNĐ</span>
+      </div>
+      <p class="f1"><img
+        style=" font-family: 'Comforter', cursive !important;font-family: 'Open Sans', sans-serif !important;"
+        src="assets/images/icons/location.png" alt="">{{ho.address}}</p>
+    </div>
+  </div>
+</div>
+<!-- flat-item -->

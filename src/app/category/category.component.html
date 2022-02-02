@@ -1,0 +1,15 @@
+<div>
+  <h2 style="color: #0a70b9">List book</h2>
+  <table style="color: purple" border="1px">
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+
+    </tr>
+    <tr *ngFor="let pe of category index as i">
+      <td>{{i + 1}}</td>
+      <td>{{pe.name}}</td>
+    </tr>
+  </table>
+</div>
+<h2 style="color: purple" id="alo"></h2>

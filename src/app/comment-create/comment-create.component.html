@@ -1,0 +1,20 @@
+
+<h2 style="color: #0a70b9">Create comment</h2>
+
+
+<form [formGroup]="commentForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>ID:</td>
+      <td><input type="hidden" formControlName="id"></td>
+    </tr>
+    <tr>
+      <td>content:</td>
+      <td><input type="text" formControlName="content"></td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+  <button class="btn btn-warning">Submit</button>
+</form>
+

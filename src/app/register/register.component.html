@@ -1,0 +1,27 @@
+<div class="login-section pt-115 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-12"></div>
+      <div class="col-md-6 col-xs-12">
+        <div class="new-customers mb-50">
+          <form action="#" [formGroup]="registerForm" (ngSubmit)="register()">
+            <h5 class="mb-50">REGISTER</h5>
+            <div class="login-account p-30 box-shadow">
+              <input type="text" placeholder="Username" formControlName="username">
+              <input type="password" placeholder="Password" formControlName="password">
+              <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                  <button class="submit-btn-1 mt-20" type="submit" value="register">Register</button>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <button class="submit-btn-1 mt-20 f-right" type="reset">Clear</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

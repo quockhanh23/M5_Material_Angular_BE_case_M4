@@ -1,0 +1,113 @@
+<!-- HEADER AREA START -->
+<header class="header-area header-wrapper">
+  <div class="header-top-bar bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="logo">
+            <a href="index.html">
+              <img height="100px"
+                   src="https://www.tourchauau.net/images/news/van-hoa-am-thuc/nhung-bieu-tuong-dac-trung-cua-nuoc-duc-9.png">
+
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 hidden-sm hidden-xs">
+          <div class="company-info clearfix">
+            <div class="company-info-item">
+              <div class="header-icon">
+                <img src="assets/images/icons/phone.png" alt="">
+              </div>
+              <div class="header-info">
+                <h6 class="f1 f5">+88 (012) 564 979 56</h6>
+                <p class="f1">Giờ mở cửa 9 am - 10pm</p>
+              </div>
+            </div>
+            <div class="company-info-item">
+              <div class="header-icon">
+                <img src="assets/images/icons/mail-open.png" alt="">
+              </div>
+              <div class="header-info">
+                <h6 class="f1 f5"><a href="mailto:hnasir770@gmail.com">info@sheltek-hn.com</a></h6>
+                <p class="f1">Gửi thư qua thư điện tử</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="header-search clearfix">
+            <div class="header-icon">
+              <img src="assets/images/icons/13.png" alt="">
+            </div>
+            <div class="header-info">
+              <h6 class="f1 f5"><a href="mailto:hnasir770@gmail.com">Số 23, lô TT01</a></h6>
+              <p class="f1">Gửi thư trực tiếp cho chúng tôi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="sticky-headerd" class="header-middle-area  transparent-header hidden-xs">
+    <div class="container">
+      <div class="full-width-mega-drop-menu">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sticky-logo">
+              <a href="index.html">
+                <img src="assets/images/logo/logo.png" alt="">
+              </a>
+            </div>
+            <nav id="primary-menu">
+              <ul class="main-menu text-center">
+                <li><a style=" font-family: 'Comforter', cursive;font-family: 'Open Sans', sans-serif;"
+                       href="index.html">Trang chủ</a>
+
+                </li>
+                <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                       href="index.html">Các yếu tố</a>
+                  <ul class="drop-menu">
+                    <li><a style=" font-family: 'Comforter', cursive;font-family: 'Open Sans', sans-serif;"
+                           href="index.html">Nhà đã thuê</a></li>
+                    <li><a style=" font-family: 'Comforter', cursive;font-family: 'Open Sans', sans-serif;"
+                           href="index-2.html">Nhà chưa thuê</a></li>
+                  </ul>
+                </li>
+                <li><a style=" font-family: 'Comforter', cursive;font-family: 'Open Sans', sans-serif;"
+                       href="service.html">Dịch vụ</a>
+                  <ul class="drop-menu">
+                    <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                           href="service.html">Chăm sóc khách hàng</a></li>
+                    <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                           href="service-details.html">Chi tiết dịch vụ</a></li>
+                  </ul>
+                </li>
+                <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                       href="properties.html">Tính chất</a>
+                  <ul class="drop-menu">
+                    <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                           href="properties.html">Sửa chữa</a></li>
+                    <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                           href="properties-left-sidebar.html">Bảo trì</a></li>
+                  </ul>
+                </li>
+                <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
+                       href="agent.html">Đại lý</a>
+                </li>
+                <li><a *ngIf="isLoggedIn()" (click)="logOut()">Đăng xuất</a>
+                </li>
+                <li><a *ngIf="!isLoggedIn()" routerLink="/register">Đăng kí</a>
+                </li>
+                <li><a *ngIf="!isLoggedIn()" routerLink="/login">Đăng nhập</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- HEADER AREA END -->
+
+
