@@ -3,7 +3,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {UserService} from "../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
-import {DialogComponent} from "../Notification/dialog/dialog.component";
 import {User} from "../models/user";
 import {DialogFailComponent} from "../Notification/dialog-fail/dialog-fail.component";
 import {DialogRegisterComponent} from "../Notification/dialog-register/dialog-register.component";
@@ -14,6 +13,7 @@ import {DialogRegisterComponent} from "../Notification/dialog-register/dialog-re
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -23,14 +23,13 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService,
               private router: Router,
               public dialog: MatDialog) {
-
   }
 
-  openDialog() {
+  openDialogSuccess() {
     this.dialog.open(DialogRegisterComponent);
   }
 
-  openDialog1() {
+  openDialogFail() {
     this.dialog.open(DialogFailComponent);
   }
 
@@ -47,11 +46,11 @@ export class RegisterComponent implements OnInit {
     }
     this.userService.register(user).subscribe(rs => {
       console.log(rs)
-      this.openDialog()
+      this.openDialogSuccess()
       this.router.navigateByUrl("/login").then()
     }, error => {
       console.log(error)
-      this.openDialog1()
+      this.openDialogFail()
     })
   }
 }

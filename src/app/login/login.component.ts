@@ -4,9 +4,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../services/authentication.service";
 import {first} from "rxjs";
-import {DialogFailComponent} from "../Notification/dialog-fail/dialog-fail.component";
 import {DialogLogin1Component} from "../Notification/dialog-login1/dialog-login1.component";
 import {DialogLoginRulesComponent} from "../Notification/dialog-login-rules/dialog-login-rules.component";
+import {DialogLogin2Component} from "../Notification/dialog-login2/dialog-login2.component";
 
 @Component({
   selector: 'app-login',
@@ -34,15 +34,15 @@ export class LoginComponent implements OnInit {
     console.log(this.authenticationService.currentUserValue);
   }
 
-  openDialog2() {
-    this.dialog.open(DialogFailComponent);
+  openDialogLoginFail() {
+    this.dialog.open(DialogLogin2Component);
   }
 
-  openDialog3() {
+  openDialogRules() {
     this.dialog.open(DialogLoginRulesComponent);
   }
 
-  openDialog4() {
+  openDialogLoginSuccess() {
     this.dialog.open(DialogLogin1Component);
   }
 
@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
     this.submitted = true;
     this.loading = true;
     this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
@@ -66,21 +65,20 @@ export class LoginComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('USERNAME', data.username);
 
-          this.openDialog3()
-          this.openDialog4()
-
+          this.openDialogRules()
+          this.openDialogLoginSuccess()
           if (data.roles[0].authority == "ROLE_ADMIN") {
-            this.router.navigate([this.adminUrl])
+            this.router.navigate([this.adminUrl]).then()
           } else {
-            this.router.navigate([this.returnUrl]);
+            this.router.navigate([this.returnUrl]).then()
           }
           console.log(data)
 
         },
         error => {
-          this.openDialog2()
+          console.log('error:' + error)
+          this.openDialogLoginFail()
           this.loading = false;
         });
   }
-
 }

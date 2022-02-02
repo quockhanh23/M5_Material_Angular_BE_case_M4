@@ -12,18 +12,29 @@ import { HomeListComponent } from './home-list/home-list.component';
 import { HomeCreateComponent } from './home-create/home-create.component';
 import { HomeDetailComponent } from './home-detail/home-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogComponent } from './Notification/dialog/dialog.component';
 import {MaterialModule} from "./material/material.module";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { DialogFailComponent } from './Notification/dialog-fail/dialog-fail.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MasterComponent } from './master/master.component';
+import { DialogComponent } from './Notification/dialog/dialog.component';
+import { DialogFailComponent } from './Notification/dialog-fail/dialog-fail.component';
 import { DialogLogoutComponent } from './Notification/dialog-logout/dialog-logout.component';
 import { DialogLogin1Component } from './Notification/dialog-login1/dialog-login1.component';
 import { DialogLoginRulesComponent } from './Notification/dialog-login-rules/dialog-login-rules.component';
 import { DialogRegisterComponent } from './Notification/dialog-register/dialog-register.component';
+import { DialogLogin2Component } from './Notification/dialog-login2/dialog-login2.component';
+
+const DialogComponents = [
+  DialogComponent,
+  DialogFailComponent,
+  DialogLogoutComponent,
+  DialogLogin1Component,
+  DialogLoginRulesComponent,
+  DialogRegisterComponent,
+  DialogLogin2Component
+]
 
 @NgModule({
   declarations: [
@@ -34,17 +45,12 @@ import { DialogRegisterComponent } from './Notification/dialog-register/dialog-r
     HomeListComponent,
     HomeCreateComponent,
     HomeDetailComponent,
-    DialogComponent,
     LoginComponent,
     RegisterComponent,
-    DialogFailComponent,
     FooterComponent,
     HeaderComponent,
     MasterComponent,
-    DialogLogoutComponent,
-    DialogLogin1Component,
-    DialogLoginRulesComponent,
-    DialogRegisterComponent
+    DialogComponents
   ],
   imports: [
     BrowserModule,
@@ -53,6 +59,7 @@ import { DialogRegisterComponent } from './Notification/dialog-register/dialog-r
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
