@@ -1,27 +1,86 @@
 <div class="login-section pt-115 pb-70">
   <div class="container">
+    <h3 class="mb-50 fontLogin">Đăng kí</h3>
     <div class="row">
-      <div class="col-md-3 col-xs-12"></div>
-      <div class="col-md-6 col-xs-12">
-        <div class="new-customers mb-50">
-          <form action="#" [formGroup]="registerForm" (ngSubmit)="register()">
-            <h3 class="mb-50 fontLogin">Đăng kí</h3>
+      <!-- khu vực form -->
+      <form action="#" [formGroup]="registerForm" (ngSubmit)="register()">
+        <!-- khu vực valid -->
+        <div class="col-md-6 col-xs-12" style="width: 500px">
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['username'].errors?.['required']">
+            Tên đăng nhập là bắt buộc!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['username'].errors?.['min']
+         && registerForm.controls['username'].touched">
+            Tên đăng nhập lớn hoặc bằng 2 kí tự!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['password'].errors?.['required']
+                    && registerForm.controls['password'].touched">
+            Mật khẩu là bắt buộc!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['confirmPassword'].errors?.['required']
+         && registerForm.controls['confirmPassword'].touched">
+            Mật khẩu là bắt buộc!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['confirmPassword'].value != registerForm.controls['password'].value
+         && registerForm.controls['confirmPassword'].touched">
+            Mật khẩu không trùng khớp!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['password'].errors?.['min']
+         && registerForm.controls['password'].touched">
+            Mật khẩu lớn hơn hoặc bằng 2 kí tự!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="registerForm.controls['confirmPassword'].errors?.['min']
+         && registerForm.controls['confirmPassword'].touched">
+            Mật khẩu lớn hơn hoặc bằng 2 kí tự!
+          </div>
+          <div class="col alert alert-success" role="alert"
+               *ngIf="registerForm.valid">
+            Giờ bạn có thể đăng kí ngay!
+          </div>
+        </div>
+        <!--Hết khu vực valid -->
+        <div class="col-md-6 col-xs-12">
+          <div class="new-customers mb-50">
             <div class="login-account p-30 box-shadow">
-              <input class="fontLogin" type="text" placeholder="Tên đăng nhập" formControlName="username">
-              <input class="fontLogin" type="password" placeholder="Mật khẩu" formControlName="password">
-              <input class="fontLogin" type="password" placeholder="Xác nhận lại mật khẩu" formControlName="confirmPassword">
+              <div class="row">
+                <div class="col-1">
+                  <span style="font-size: 45px" class="material-icons">account_box</span>
+                  <br>
+                  <span style="font-size: 46px; margin-top: 8px" class="material-icons">https</span>
+                  <br>
+                  <span style="font-size: 43px;margin-top: 12px" class="material-icons">fact_check</span>
+                </div>
+                <div class="col-11">
+                  <input class="fontLogin" type="text"
+                         placeholder="Tên đăng nhập" formControlName="username">
+                  <input class="fontLogin" type="password"
+                         placeholder="Mật khẩu" formControlName="password">
+                  <input class="fontLogin" type="password"
+                         placeholder="Xác nhận lại mật khẩu" formControlName="confirmPassword">
+                </div>
+              </div>
               <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                  <button class="submit-btn-1 mt-20 fontLogin" type="submit" value="register">Đăng kí</button>
+                  <button [disabled]="!registerForm.valid" class="btn"
+                          type="submit" value="register">Đăng kí
+                  </button>
                 </div>
                 <div class="col-sm-6 col-xs-12">
                   <button class="submit-btn-1 mt-20 f-right fontLogin" type="reset">Xóa</button>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
+      <!-- Hết khu vực form -->
     </div>
   </div>
 </div>

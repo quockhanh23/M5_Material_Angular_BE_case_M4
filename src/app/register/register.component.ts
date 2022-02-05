@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -15,9 +15,9 @@ import {DialogRegisterComponent} from "../Notification/dialog-register/dialog-re
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
+    username: new FormControl('',[Validators.required,Validators.min(2)]),
+    password: new FormControl('',[Validators.required,Validators.min(2)],),
+    confirmPassword: new FormControl('',[Validators.required,Validators.min(2)],)
   });
 
   constructor(private userService: UserService,
@@ -38,12 +38,6 @@ export class RegisterComponent implements OnInit {
 
   register() {
     let user = this.registerForm.value
-    let newUser: User = {
-      id: "", roles: [],
-      username: user.username,
-      password: user.password,
-      confirmPassword: user.confirmPassword
-    }
     this.userService.register(user).subscribe(rs => {
       console.log(rs)
       this.openDialogSuccess()
