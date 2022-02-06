@@ -9,6 +9,8 @@ import {DialogLoginRulesComponent} from "../Notification/dialog-login-rules/dial
 import {DialogLogin2Component} from "../Notification/dialog-login2/dialog-login2.component";
 import {ToastrService} from "ngx-toastr";
 import {set} from "@angular/fire/database";
+import {DialogWeatherComponent} from "../dialog-weather/dialog-weather.component";
+import {WeatherComponent} from "../weather/weather.component";
 
 @Component({
   selector: 'app-login',
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
   openToartsConnectionSuccess() {
     this.toarts.success('Kết nối đã được khôi phục lại', 'Thông tin')
   }
+
   openToartsConnectionSuccess2() {
     this.toarts.success('Đăng nhập thành công !', 'Thông tin')
   }
@@ -75,6 +78,10 @@ export class LoginComponent implements OnInit {
 
   openDialogLoginFail() {
     this.dialog.open(DialogLogin2Component);
+  }
+
+  openDialogWeather() {
+    this.dialog.open(WeatherComponent);
   }
 
   openDialogRules() {
@@ -107,6 +114,7 @@ export class LoginComponent implements OnInit {
           this.openDialogRules()
           this.openToartsConnectionSuccess2()
           this.timeOpen2()
+          this.openDialogWeather()
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
           } else {
@@ -121,10 +129,12 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         });
   }
+
   username: string | null = ''
+
   isLoggedIn(): boolean {
-    if (localStorage.getItem('USERNAME')!= null) {
-      this.username=localStorage.getItem('USERNAME');
+    if (localStorage.getItem('USERNAME') != null) {
+      this.username = localStorage.getItem('USERNAME');
       return true;
     }
     return false

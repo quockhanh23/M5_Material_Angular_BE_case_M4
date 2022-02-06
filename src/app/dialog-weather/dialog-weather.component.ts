@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 const URL_API = 'https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vie&APPID='
 const KEY = 'aa23e2f239142a14f1b06d3316a74862'
 @Component({
-  selector: 'app-weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.css']
+  selector: 'app-dialog-weather',
+  templateUrl: './dialog-weather.component.html',
+  styleUrls: ['./dialog-weather.component.css']
 })
-export class WeatherComponent implements OnInit {
-  weatherShow = false
-  button = true
+export class DialogWeatherComponent implements OnInit {
+
   WeatherData:any;
   constructor() { }
 
@@ -24,14 +23,6 @@ export class WeatherComponent implements OnInit {
     fetch(URL_API + KEY)
       .then(response=>response.json())
       .then(data=>{this.setWeatherData(data);})
-  }
-  change() {
-   this.weatherShow = true
-    this.button = false
-  }
-  change2() {
-    this.weatherShow = false
-    this.button = true
   }
 
   setWeatherData(data:any){
