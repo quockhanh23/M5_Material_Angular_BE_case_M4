@@ -90,10 +90,9 @@
                            href="properties-left-sidebar.html">Bảo trì</a></li>
                   </ul>
                 </li>
-                <li><a style=" font-family: 'Comforter', cursive; font-family: 'Open Sans', sans-serif;"
-                       href="agent.html">Đại lý</a>
-                </li>
                 <li><a *ngIf="isLoggedIn()" (click)="logOut()">Đăng xuất</a>
+                </li>
+                <li><a *ngIf="isLoggedIn()"> {{username}}</a>
                 </li>
                 <li><a *ngIf="!isLoggedIn()" routerLink="/register">Đăng kí</a>
                 </li>

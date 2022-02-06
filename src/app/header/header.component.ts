@@ -7,7 +7,7 @@ import {AuthenticationService} from "../services/authentication.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  username: string | null = ''
   constructor(private authService: AuthenticationService) {
   }
 
@@ -15,13 +15,15 @@ export class HeaderComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
-    if (localStorage.getItem("currentUser") != null) {
+    if (localStorage.getItem('USERNAME')!= null) {
+      this.username=localStorage.getItem('USERNAME');
       return true;
     }
-    return false;
+    return false
   }
 
   logOut() {
+    localStorage.clear();
     this.authService.logout();
   }
 
