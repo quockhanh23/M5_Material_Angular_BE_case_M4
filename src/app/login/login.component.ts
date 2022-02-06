@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   openToartsConnectionFail() {
-    this.toarts.error('Mất kết nối với máy chủ', 'Cảnh báo !')
+    this.toarts.error('Kết nối internet bị gián đoạn', 'Cảnh báo !')
   }
 
   openToartsConnectionSuccess() {

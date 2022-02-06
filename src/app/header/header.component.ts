@@ -10,11 +10,13 @@ import {ToastrService} from "ngx-toastr";
 export class HeaderComponent implements OnInit {
   username: string | null = ''
   constructor(private authService: AuthenticationService,
-              private toarts: ToastrService,) {
+              private toarts: ToastrService,
+              ) {
   }
 
   ngOnInit(): void {
   }
+
 
   isLoggedIn(): boolean {
     if (localStorage.getItem('USERNAME')!= null) {

@@ -30,6 +30,8 @@ import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {ToastrModule} from "ngx-toastr";
 import { ClockComponent } from './clock/clock.component';
+import { WeatherComponent } from './weather/weather.component';
+
 
 
 
@@ -59,6 +61,8 @@ const DialogComponents = [
     MasterComponent,
     DialogComponents,
     ClockComponent,
+    WeatherComponent,
+
 
 
 
