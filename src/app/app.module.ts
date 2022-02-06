@@ -29,6 +29,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {ToastrModule} from "ngx-toastr";
+import { ClockComponent } from './clock/clock.component';
 
 
 
@@ -57,6 +58,9 @@ const DialogComponents = [
     HeaderComponent,
     MasterComponent,
     DialogComponents,
+    ClockComponent,
+
+
 
   ],
   imports: [

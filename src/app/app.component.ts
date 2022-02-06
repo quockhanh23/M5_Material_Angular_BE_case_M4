@@ -8,6 +8,7 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = "cloudsSorage";
   // @ts-ignore
   selectedFile: File = null;

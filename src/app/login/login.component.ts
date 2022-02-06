@@ -121,4 +121,12 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         });
   }
+  username: string | null = ''
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('USERNAME')!= null) {
+      this.username=localStorage.getItem('USERNAME');
+      return true;
+    }
+    return false
+  }
 }
