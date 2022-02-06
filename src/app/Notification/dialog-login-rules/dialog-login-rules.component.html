@@ -1,5 +1,5 @@
 <h1 style="color: indigo" mat-dialog-title>Điều khoản và dịch vụ&emsp;<sub><span
-  class="material-icons">auto_stories</span></sub></h1>
+  class="material-icons">auto_stories</span></sub><a *ngIf="isLoggedIn()">&emsp; {{username}}</a></h1>
 <mat-dialog-content class="mat-typography">
   <h3 class="a1 fontDialog">Phát triển trên tất cả các nền tảng</h3>
   <p class="fontDialog">Tìm hiểu một cách để xây dựng ứng dụng với Angular và sử dụng lại mã và khả năng của bạn để xây

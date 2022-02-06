@@ -28,6 +28,7 @@ import {DialogLogin2Component} from './Notification/dialog-login2/dialog-login2.
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {ToastrModule} from "ngx-toastr";
 
 
 
@@ -66,7 +67,9 @@ const DialogComponents = [
     BrowserAnimationsModule,
     MaterialModule,
     AngularFireStorageModule,
+    ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
+
   ],
   providers: [],
   bootstrap: [AppComponent]

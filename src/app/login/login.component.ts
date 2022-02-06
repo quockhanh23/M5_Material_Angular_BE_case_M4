@@ -7,6 +7,8 @@ import {first} from "rxjs";
 import {DialogLogin1Component} from "../Notification/dialog-login1/dialog-login1.component";
 import {DialogLoginRulesComponent} from "../Notification/dialog-login-rules/dialog-login-rules.component";
 import {DialogLogin2Component} from "../Notification/dialog-login2/dialog-login2.component";
+import {ToastrService} from "ngx-toastr";
+import {set} from "@angular/fire/database";
 
 @Component({
   selector: 'app-login',
@@ -29,9 +31,46 @@ export class LoginComponent implements OnInit {
   constructor(public dialog: MatDialog,
               private activatedRoute: ActivatedRoute,
               private router: Router,
+              private toarts: ToastrService,
               private authenticationService: AuthenticationService
   ) {
     console.log(this.authenticationService.currentUserValue);
+  }
+
+  closeAllDialog() {
+    setTimeout(() => {
+      this.dialog.closeAll()
+    }, 7000)
+  }
+
+  openToartsHelp() {
+    this.toarts.info('Bạn cần trợ giúp ?', 'Chú ý !')
+  }
+
+  openToartsConnectionFail() {
+    this.toarts.error('Mất kết nối với máy chủ', 'Cảnh báo !')
+  }
+
+  openToartsConnectionSuccess() {
+    this.toarts.success('Kết nối đã được khôi phục lại', 'Thông tin')
+  }
+  openToartsConnectionSuccess2() {
+    this.toarts.success('Đăng nhập thành công !', 'Thông tin')
+  }
+
+  timeOpen2() {
+    setInterval(() => {
+      this.openToartsConnectionFail()
+    }, 20000)
+    setInterval(() => {
+      this.openToartsConnectionSuccess()
+    }, 25000)
+  }
+
+  openToartsEditInfor() {
+    setTimeout(() => {
+      this.toarts.info('Bạn nên sửa lại thông tin cá nhân', 'Chú ý !')
+    }, 10000)
   }
 
   openDialogLoginFail() {
@@ -64,9 +103,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
           localStorage.setItem('USERNAME', data.username);
-
+          this.openToartsEditInfor()
           this.openDialogRules()
-          this.openDialogLoginSuccess()
+          this.openToartsConnectionSuccess2()
+          this.timeOpen2()
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
           } else {

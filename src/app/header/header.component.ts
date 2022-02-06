@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../services/authentication.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ import {AuthenticationService} from "../services/authentication.service";
 })
 export class HeaderComponent implements OnInit {
   username: string | null = ''
-  constructor(private authService: AuthenticationService) {
+  constructor(private authService: AuthenticationService,
+              private toarts: ToastrService,) {
   }
 
   ngOnInit(): void {
@@ -26,5 +28,4 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this.authService.logout();
   }
-
 }

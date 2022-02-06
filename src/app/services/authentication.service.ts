@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {UserToken} from "../models/user-token";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogLogoutComponent} from "../Notification/dialog-logout/dialog-logout.component";
+import {ToastrService} from "ngx-toastr";
 
 const API_URL = environment.apiUrl;
 
@@ -16,7 +17,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<UserToken>;
   public currentUser: Observable<UserToken>;
 
-  constructor(private http: HttpClient, public dialog: MatDialog,) {
+  constructor(private http: HttpClient, public dialog: MatDialog, private toarts: ToastrService,) {
     // @ts-ignore
     this.currentUserSubject = new BehaviorSubject<UserToken>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -44,5 +45,12 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     // @ts-ignore
     this.currentUserSubject.next(null);
+    this.openToartsLogout()
+  }
+
+  openToartsLogout() {
+    setTimeout(() => {
+      this.toarts.info('Đăng nhập để có thể sử dụng các dịch vụ của chúng tôi', 'Chú ý !')
+    }, 5000)
   }
 }
